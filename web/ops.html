@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>غرفة التحكم الفنية – فكرة هاوس</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="fekra-house-tab.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <picture class="brand-logo">
+    <source media="(prefers-color-scheme: dark)" srcset="fekra-house-dark.svg">
+    <img src="fekra-house.svg" width="113" height="60" alt="Fekra House">
+  </picture>
+  <div>
+    <h1>غرفة التحكم</h1>
+    <p class="verdict" id="verdict">بيحمّل…</p>
+  </div>
+  <div class="sync">
+    <span id="synced">—</span>
+    <a class="btn ghost" href="/">صفحة المدير</a>
+    <button class="btn ghost" id="refresh" type="button">حدّث دلوقتي</button>
+  </div>
+</header>
+
+<main>
+  <section aria-labelledby="pipe-h">
+    <h2 id="pipe-h">خط الـ Outbound</h2>
+    <p class="hint">مراحل إيميلات الـ cold outreach بالترتيب. اللمبة بتقولك حالة آخر تشغيل.</p>
+    <ol class="pipe" id="pipeline"></ol>
+  </section>
+
+  <section aria-labelledby="fail-h" id="failSection" hidden>
+    <h2 id="fail-h">تشغيلات فشلت</h2>
+    <p class="hint">"شغّلها تاني" بتعيد نفس التشغيل بنفس الداتا من النقطة اللي وقف عندها.</p>
+    <ul class="fails" id="fails"></ul>
+  </section>
+
+  <section aria-labelledby="all-h">
+    <div class="row-head">
+      <h2 id="all-h">كل الـ Workflows</h2>
+      <div class="filters" role="group" aria-label="فلتر">
+        <button type="button" class="chip" data-f="all" aria-pressed="true">الكل</button>
+        <button type="button" class="chip" data-f="on" aria-pressed="false">الشغّال</button>
+        <button type="button" class="chip" data-f="off" aria-pressed="false">المتوقف</button>
+        <input type="search" id="q" placeholder="دوّر بالاسم" aria-label="دوّر بالاسم">
+      </div>
+    </div>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>الاسم</th><th>تشغيل/إيقاف</th><th>آخر تشغيل</th><th class="narrow-hide">النتيجة</th><th class="narrow-hide">مرات التشغيل</th></tr></thead>
+        <tbody id="wf"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="log-h">
+    <h2 id="log-h">آخر التشغيلات</h2>
+    <div class="tablebox short">
+      <table>
+        <thead><tr><th>#</th><th>الـ Workflow</th><th>النتيجة</th><th>بدأ</th><th class="narrow-hide">المدة</th></tr></thead>
+        <tbody id="log"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>

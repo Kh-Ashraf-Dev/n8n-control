@@ -1,0 +1,15 @@
+{
+  "name": "n8n-control-room",
+  "version": "1.0.0",
+  "description": "Live control room for the AI automation workflows running on n8n",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --watch --env-file-if-exists=.env server.js"
+  },
+  "engines": { "node": ">=20.12" },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>فكرة هاوس – الأوتوميشن</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="fekra-house-tab.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="ceo">
+<header class="top">
+  <picture class="brand-logo">
+    <source media="(prefers-color-scheme: dark)" srcset="fekra-house-dark.svg">
+    <img src="fekra-house.svg" width="113" height="60" alt="Fekra House">
+  </picture>
+  <div>
+    <h1>الأوتوميشن بتاع فكرة هاوس</h1>
+    <p class="verdict" id="verdict">بيحمّل…</p>
+  </div>
+  <div class="sync">
+    <span id="synced">—</span>
+    <button class="btn ghost" id="refresh" type="button">حدّث دلوقتي</button>
+  </div>
+</header>
+
+<main>
+  <section aria-labelledby="alerts-h" id="alertSection" hidden>
+    <h2 id="alerts-h">محتاج تعرف</h2>
+    <ul class="alerts" id="alerts"></ul>
+  </section>
+
+  <section aria-labelledby="nums-h">
+    <h2 id="nums-h">إيميلات العملاء لحد دلوقتي</h2>
+    <p class="hint">النظام بيلاقي شركات مناسبة، ويكتب لكل شخص إيميل مخصوص، ويتابع مين ردّ.</p>
+    <div class="nums" id="nums"></div>
+  </section>
+
+  <section aria-labelledby="rep-h">
+    <h2 id="rep-h">مين ردّ</h2>
+    <div id="replies"></div>
+  </section>
+
+  <section aria-labelledby="leads-h">
+    <div class="row-head">
+      <div>
+        <h2 id="leads-h">كل الناس اللي بنكلّمهم</h2>
+        <p class="hint">دوس على أي اسم عشان تشوف الإيميل بتاعه. ولو الإيميل لسه ما اتبعتش، تقدر تعدّله وتبعته من هنا.</p>
+      </div>
+      <div class="filters" role="group" aria-label="فلتر" id="leadFilters"></div>
+    </div>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>الشركة</th><th>الشخص</th><th>الحالة</th><th class="narrow-hide">اتبعت</th></tr></thead>
+        <tbody id="leads"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="sys-h">
+    <h2 id="sys-h">الأنظمة اللي شغّالة لحسابك</h2>
+    <p class="hint">كل كارت فيه نظام واحد: بيعمل إيه، وبنستفيد منه إيه، ولو وقع هيحصل إيه. اللمبة الخضرا معناها إن آخر مرة اشتغل فيها نجح.</p>
+    <h3>المبيعات (إيميلات العملاء) بالترتيب</h3>
+    <div class="cards" id="sales"></div>
+    <h3>السوشيال ميديا</h3>
+    <div class="cards" id="social"></div>
+    <details class="internal">
+      <summary id="internalSum">أدوات داخلية ونسخ قديمة</summary>
+      <ul id="internal"></ul>
+    </details>
+  </section>
+
+  <p class="foot"><a href="ops.html">صفحة التحكم الفنية</a> (تشغيل وإيقاف الأنظمة وإعادة التشغيلات اللي وقعت)</p>
+</main>
+
+<dialog id="msg" aria-labelledby="msgWho">
+  <form method="dialog" class="msg-head">
+    <div>
+      <h3 id="msgWho">—</h3>
+      <p id="msgMeta" class="hint"></p>
+    </div>
+    <button class="btn ghost" value="close" aria-label="اقفل">✕</button>
+  </form>
+  <div id="msgBody" class="msg-body"></div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="catalog.js"></script>
+<script src="ceo.js"></script>
+</body>
+</html>
